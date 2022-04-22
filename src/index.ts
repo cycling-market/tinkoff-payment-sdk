@@ -114,6 +114,16 @@ export {
 
 } from './api-client/requests/check-order';
 
+//===============================//
+// REQUEST: SEND CLOSING RECEIPT //
+//===============================//
+
+export {
+  sendClosingReceipt,
+  SendClosingReceiptRequestPayload,
+  SendClosingReceiptResponsePayload
+} from './api-client/requests/send-closing-receipt'
+
 //=========================//
 // REQUEST: CANCEL PAYMENT //
 //=========================//

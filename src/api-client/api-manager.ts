@@ -20,6 +20,7 @@ import { getCustomer, GetCustomerRequestPayload, GetCustomerResponsePayload } fr
 import { getState, GetStateRequestPayload, GetStateResponsePayload } from './requests/get-state';
 import { getQr, GetQrRequestPayload, GetQrResponsePayload } from './requests/get-qr';
 import { checkOrder, CheckOrderRequestPayload, CheckOrderResponsePayload } from './requests/check-order';
+import { sendClosingReceipt, SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload } from './requests/send-closing-receipt';
 import {
   initPayment,
   InitPaymentRequestPayload,
@@ -132,11 +133,17 @@ export class ApiManager extends BaseApiManager {
 
   }
 
+  public sendClosingReceipt(
+    payload: SendClosingReceiptRequestPayload
+  ): Promise<SendClosingReceiptResponsePayload> {
+    return sendClosingReceipt({ apiClient: this.apiClient, payload });
+  }
+
 }
 
 export class ApiManagerMerchant extends BaseApiManager {
 
-  constructor (options: ApiClientOptions, signProvider: SignProvider) {
+  constructor(options: ApiClientOptions, signProvider: SignProvider) {
     super();
     this.apiClient = new MerchantClient(options, signProvider);
   }
