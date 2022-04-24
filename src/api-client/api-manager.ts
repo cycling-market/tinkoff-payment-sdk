@@ -14,13 +14,12 @@ import {
   CancelPaymentResponsePayload,
 } from './requests/cancel-payment';
 import { chargePayment, ChargePaymentRequestPayload, ChargePaymentResponsePayload } from './requests/charge-payment';
+import { checkOrder, CheckOrderRequestPayload, CheckOrderResponsePayload } from './requests/check-order';
 import { confirmPayment, ConfirmPaymentRequestPayload, ConfirmPaymentResponsePayload } from './requests/confirm-payment';
 import { getCardList, GetCardListRequestPayload, GetCardListResponsePayload } from './requests/get-card-list';
 import { getCustomer, GetCustomerRequestPayload, GetCustomerResponsePayload } from './requests/get-customer';
-import { getState, GetStateRequestPayload, GetStateResponsePayload } from './requests/get-state';
 import { getQr, GetQrRequestPayload, GetQrResponsePayload } from './requests/get-qr';
-import { checkOrder, CheckOrderRequestPayload, CheckOrderResponsePayload } from './requests/check-order';
-import { sendClosingReceipt, SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload } from './requests/send-closing-receipt';
+import { getState, GetStateRequestPayload, GetStateResponsePayload } from './requests/get-state';
 import {
   initPayment,
   InitPaymentRequestPayload,
@@ -29,6 +28,7 @@ import {
 import { payment, PaymentRequestPayload, PaymentResponsePayload } from './requests/payment';
 import { removeCard, RemoveCardRequestPayload, RemoveCardResponsePayload } from './requests/remove-card';
 import { removeCustomer, RemoveCustomerRequestPayload, RemoveCustomerResponsePayload } from './requests/remove-customer';
+import { sendClosingReceipt, SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload } from './requests/send-closing-receipt';
 
 
 abstract class BaseApiManager {
@@ -139,6 +139,55 @@ export class ApiManager extends BaseApiManager {
     return sendClosingReceipt({ apiClient: this.apiClient, payload });
   }
 
+  public addCustomer(
+    payload: AddCustomerRequestPayload
+
+  ): Promise<AddCustomerResponsePayload> {
+
+    return addCustomer({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public getCustomer(
+    payload: GetCustomerRequestPayload
+
+  ): Promise<GetCustomerResponsePayload> {
+
+    return getCustomer({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+
+  public removeCustomer(
+    payload: RemoveCustomerRequestPayload
+
+  ): Promise<RemoveCustomerResponsePayload> {
+
+    return removeCustomer({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+
+  public getCardList(
+    payload: GetCardListRequestPayload
+
+  ): Promise<GetCardListResponsePayload> {
+
+    return getCardList({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
 }
 
 export class ApiManagerMerchant extends BaseApiManager {

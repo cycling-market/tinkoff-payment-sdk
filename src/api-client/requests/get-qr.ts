@@ -1,6 +1,6 @@
 import { ResponsePayload as BaseResponsePayload } from '../response-payload';
-import { buildSendRequestFunction } from './common/request';
 import { DataTypeQr } from './common/data-type-qr';
+import { buildSendRequestFunction } from './common/request';
 
 //=========//
 // REQUEST //
