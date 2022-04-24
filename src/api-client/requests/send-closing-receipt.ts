@@ -1,4 +1,3 @@
-import { ApiClient } from '../clients/api-client';
 import { ResponsePayload as BaseResponsePayload } from '../response-payload';
 import { validateAndPrepareReceipt } from './common/receipt';
 import { Receipt } from './common/receipt';
@@ -31,20 +30,10 @@ export interface SendClosingReceiptResponsePayload extends BaseResponsePayload {
 //==========//
 
 
-export function sendClosingReceipt(options: {
-    apiClient: ApiClient;
-    payload: SendClosingReceiptRequestPayload;
-
-}): Promise<SendClosingReceiptResponsePayload> {
-  const sendRequest = buildSendRequestFunction<SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload>('SendClosingReceipt');
-
-  const $payload = options.payload;
-
-  const payload = {
-    ...$payload,
-    Receipt: validateAndPrepareReceipt($payload.Receipt)
-  };
-
-  return sendRequest({ ...options, payload });
-
-}
+export const sendClosingReceipt = buildSendRequestFunction<SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload>(
+  'sendClosingReceipt',
+  [],[],
+  (payload) => ({
+    Receipt: validateAndPrepareReceipt(payload.Receipt)
+  })
+);

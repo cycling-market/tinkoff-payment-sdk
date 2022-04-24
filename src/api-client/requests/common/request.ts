@@ -6,7 +6,8 @@ import { ResponsePayload as BaseResponsePayload } from '../../response-payload';
 export const buildSendRequestFunction = function<TRequest, TResponse extends BaseResponsePayload>(
   url : string,
   RequestSchema : Schema = [],
-  ResponseSchema : Schema = []
+  ResponseSchema : Schema = [],
+  transformLambda?: (payload: TRequest) => Partial<TRequest>
 ) : (options: {
   apiClient: BaseClient;
   payload: TRequest;
@@ -19,9 +20,13 @@ export const buildSendRequestFunction = function<TRequest, TResponse extends Bas
 
     const { ...restPayload } = options.payload;
 
-    const $payload: any = {
-      ...restPayload,
+    let $payload : TRequest = {
+      ...restPayload
     };
+
+    if (transformLambda) {
+      $payload = Object.assign($payload, transformLambda(restPayload));
+    }
 
     const response = await apiClient.sendRequest<TResponse>({
       request: {
@@ -34,5 +39,5 @@ export const buildSendRequestFunction = function<TRequest, TResponse extends Bas
     });
 
     return response.payload;
-  }
-}
+  };
+};
