@@ -14,6 +14,7 @@ import { InitPaymentRequestPayload, InitPaymentResponsePayload } from './request
 import { PaymentRequestPayload, PaymentResponsePayload } from './requests/payment';
 import { RemoveCardRequestPayload, RemoveCardResponsePayload } from './requests/remove-card';
 import { RemoveCustomerRequestPayload, RemoveCustomerResponsePayload } from './requests/remove-customer';
+import { ResendResponsePayload, ResendRequestPayload } from './requests/resend';
 import { SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload } from './requests/send-closing-receipt';
 declare abstract class BaseApiManager {
     protected apiClient: BaseClient;
@@ -36,6 +37,7 @@ export declare class ApiManager extends BaseApiManager {
     getCustomer(payload: GetCustomerRequestPayload): Promise<GetCustomerResponsePayload>;
     removeCustomer(payload: RemoveCustomerRequestPayload): Promise<RemoveCustomerResponsePayload>;
     getCardList(payload: GetCardListRequestPayload): Promise<GetCardListResponsePayload>;
+    resend(payload: ResendRequestPayload): Promise<ResendResponsePayload>;
 }
 export declare class ApiManagerSafeDeal extends BaseApiManager {
     constructor(options: ApiClientOptions);
@@ -48,6 +50,7 @@ export declare class ApiManagerSafeDeal extends BaseApiManager {
     initPayment(payload: InitPaymentRequestPayload): Promise<InitPaymentResponsePayload>;
     payment(payload: PaymentRequestPayload): Promise<PaymentResponsePayload>;
     getState(payload: GetStateRequestPayload): Promise<GetStateResponsePayload>;
+    resend(payload: ResendRequestPayload): Promise<ResendResponsePayload>;
 }
 export declare class ApiManagerMerchant extends BaseApiManager {
     constructor(options: ApiClientOptions, signProvider: SignProvider);
@@ -60,5 +63,6 @@ export declare class ApiManagerMerchant extends BaseApiManager {
     initPayment(payload: InitPaymentRequestPayload): Promise<InitPaymentResponsePayload>;
     payment(payload: PaymentRequestPayload): Promise<PaymentResponsePayload>;
     getState(payload: GetStateRequestPayload): Promise<GetStateResponsePayload>;
+    resend(payload: ResendRequestPayload): Promise<ResendResponsePayload>;
 }
 export {};

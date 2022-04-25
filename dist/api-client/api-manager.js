@@ -18,6 +18,7 @@ const init_payment_1 = require("./requests/init-payment");
 const payment_1 = require("./requests/payment");
 const remove_card_1 = require("./requests/remove-card");
 const remove_customer_1 = require("./requests/remove-customer");
+const resend_1 = require("./requests/resend");
 const send_closing_receipt_1 = require("./requests/send-closing-receipt");
 class BaseApiManager {
 }
@@ -99,6 +100,12 @@ class ApiManager extends BaseApiManager {
             payload,
         });
     }
+    resend(payload) {
+        return resend_1.resend({
+            apiClient: this.apiClient,
+            payload
+        });
+    }
 }
 exports.ApiManager = ApiManager;
 class ApiManagerSafeDeal extends BaseApiManager {
@@ -160,6 +167,12 @@ class ApiManagerSafeDeal extends BaseApiManager {
             payload,
         });
     }
+    resend(payload) {
+        return resend_1.resend({
+            apiClient: this.apiClient,
+            payload
+        });
+    }
 }
 exports.ApiManagerSafeDeal = ApiManagerSafeDeal;
 class ApiManagerMerchant extends BaseApiManager {
@@ -219,6 +232,12 @@ class ApiManagerMerchant extends BaseApiManager {
         return get_state_1.getState({
             apiClient: this.apiClient,
             payload,
+        });
+    }
+    resend(payload) {
+        return resend_1.resend({
+            apiClient: this.apiClient,
+            payload
         });
     }
 }
