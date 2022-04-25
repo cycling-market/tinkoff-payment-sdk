@@ -29,6 +29,7 @@ import {
 import { payment, PaymentRequestPayload, PaymentResponsePayload } from './requests/payment';
 import { removeCard, RemoveCardRequestPayload, RemoveCardResponsePayload } from './requests/remove-card';
 import { removeCustomer, RemoveCustomerRequestPayload, RemoveCustomerResponsePayload } from './requests/remove-customer';
+import { resend, ResendResponsePayload, ResendRequestPayload } from './requests/resend';
 import { sendClosingReceipt, SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload } from './requests/send-closing-receipt';
 
 
@@ -189,6 +190,15 @@ export class ApiManager extends BaseApiManager {
     });
 
   }
+
+  public resend(
+    payload: ResendRequestPayload
+  ) : Promise<ResendResponsePayload> {
+    return resend({
+      apiClient: this.apiClient,
+      payload
+    });
+  }
 }
 
 export class ApiManagerSafeDeal extends BaseApiManager {
@@ -303,6 +313,15 @@ export class ApiManagerSafeDeal extends BaseApiManager {
       payload,
     });
   }
+
+  public resend(
+    payload: ResendRequestPayload
+  ) : Promise<ResendResponsePayload> {
+    return resend({
+      apiClient: this.apiClient,
+      payload
+    });
+  }
 }
 
 export class ApiManagerMerchant extends BaseApiManager {
@@ -415,6 +434,15 @@ export class ApiManagerMerchant extends BaseApiManager {
     return getState({
       apiClient: this.apiClient,
       payload,
+    });
+  }
+
+  public resend(
+    payload: ResendRequestPayload
+  ) : Promise<ResendResponsePayload> {
+    return resend({
+      apiClient: this.apiClient,
+      payload
     });
   }
 }

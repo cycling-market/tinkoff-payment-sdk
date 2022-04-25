@@ -1,0 +1,32 @@
+import { ResponsePayload as BaseResponsePayload } from '../response-payload';
+import { NotificationTypes } from './common/notification-types';
+import { buildSendRequestFunction } from './common/request';
+
+//=========//
+// REQUEST //
+//=========//
+
+export interface ResendRequestPayload {
+  /** Id платежа, по которому необходимо получить нотификацию из архива	*/
+  PaymentId?: number,
+  NotificationTypes?: NotificationTypes
+}
+
+
+//==========//
+// RESPONSE //
+//==========//
+
+export type ResendResponsePayload = BaseResponsePayload
+
+
+//==========//
+// FUNCTION //
+//==========//
+
+export const resend = buildSendRequestFunction<ResendRequestPayload, ResendResponsePayload>('Resend', [], [], (payload) => {
+  if (payload.PaymentId && !payload.NotificationTypes) {
+    throw Error('NotificationTypes is required if PaymentId is supplied');
+  }
+  return {};
+});
