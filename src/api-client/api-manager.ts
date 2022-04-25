@@ -2,6 +2,7 @@ import { SignProvider } from '../sign-providers/sign-provider';
 import { ApiClient } from './clients/api-client';
 import { ApiClientOptions, BaseClient } from './clients/base-client';
 import { MerchantClient } from './clients/merchant-client';
+import { SafeDealClient } from './clients/safedeal-client';
 import {
   addCard,
   AddCardRequestPayload,
@@ -187,6 +188,120 @@ export class ApiManager extends BaseApiManager {
       payload,
     });
 
+  }
+}
+
+export class ApiManagerSafeDeal extends BaseApiManager {
+  constructor(options: ApiClientOptions) {
+    super();
+    this.apiClient = new SafeDealClient(options);
+  }
+
+
+  public addCustomer(
+    payload: AddCustomerRequestPayload
+
+  ): Promise<AddCustomerResponsePayload> {
+
+    return addCustomer({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public getCustomer(
+    payload: GetCustomerRequestPayload
+
+  ): Promise<GetCustomerResponsePayload> {
+
+    return getCustomer({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+
+  public removeCustomer(
+    payload: RemoveCustomerRequestPayload
+
+  ): Promise<RemoveCustomerResponsePayload> {
+
+    return removeCustomer({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+
+  public addCard(
+    payload: AddCardRequestPayload
+
+  ): Promise<AddCardResponsePayload> {
+
+    return addCard({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public getCardList(
+    payload: GetCardListRequestPayload
+
+  ): Promise<GetCardListResponsePayload> {
+
+    return getCardList({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public removeCard(
+    payload: RemoveCardRequestPayload
+
+  ): Promise<RemoveCardResponsePayload> {
+
+    return removeCard({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public initPayment(
+    payload: InitPaymentRequestPayload
+
+  ): Promise<InitPaymentResponsePayload> {
+
+    return initPayment({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public payment(
+    payload: PaymentRequestPayload
+  ): Promise<PaymentResponsePayload> {
+
+    return payment({
+      apiClient: this.apiClient,
+      payload,
+    });
+  }
+
+  public getState(
+    payload: GetStateRequestPayload
+  ): Promise<GetStateResponsePayload> {
+
+    return getState({
+      apiClient: this.apiClient,
+      payload,
+    });
   }
 }
 

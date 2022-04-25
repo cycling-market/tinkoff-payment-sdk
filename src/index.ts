@@ -59,7 +59,7 @@ export { RSASignProvider } from './sign-providers/rsa-sign-provider';
 // API MANAGER //
 //=============//
 
-export { ApiManager, ApiManagerMerchant } from './api-client/api-manager';
+export { ApiManager, ApiManagerMerchant, ApiManagerSafeDeal } from './api-client/api-manager';
 
 //=================//
 // WEBHOOK HANDLER //
@@ -122,7 +122,7 @@ export {
   sendClosingReceipt,
   SendClosingReceiptRequestPayload,
   SendClosingReceiptResponsePayload
-} from './api-client/requests/send-closing-receipt'
+} from './api-client/requests/send-closing-receipt';
 
 //=========================//
 // REQUEST: CANCEL PAYMENT //
@@ -176,3 +176,9 @@ export * from './api-client/requests/remove-customer';
 export * from './api-client/requests/add-card';
 export * from './api-client/requests/get-card-list';
 export * from './api-client/requests/remove-card';
+
+// SafeDeal API
+
+export * from './api-client/requests/create-sp-deal';
+export * from './api-client/requests/close-sp-deal';
+
