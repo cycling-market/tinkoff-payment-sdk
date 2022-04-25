@@ -17,7 +17,9 @@ export interface ResendRequestPayload {
 // RESPONSE //
 //==========//
 
-export type ResendResponsePayload = BaseResponsePayload
+export interface ResendResponsePayload extends BaseResponsePayload {
+  Count: number
+}
 
 
 //==========//
