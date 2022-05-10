@@ -1,4 +1,7 @@
 
+# This is a WIP fork which I have not tested yet
+
+Original readme:
 # @jfkz/tinkoff-payment-sdk
 
 <!-- NPM Badge -->
