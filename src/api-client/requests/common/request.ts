@@ -25,7 +25,7 @@ export const buildSendRequestFunction = function<TRequest, TResponse extends Bas
     };
 
     if (transformLambda) {
-      $payload = Object.assign($payload, transformLambda(restPayload));
+      $payload = {...$payload, ...transformLambda(restPayload)};
     }
 
     const response = await apiClient.sendRequest<TResponse>({

@@ -9,6 +9,8 @@
     "declarationDir": "dist/types/",
     "sourceMap": true,
     "outDir": "dist/",
+    "isolatedModules": true,
+    // "verbatimModuleSyntax": true,
     "lib": [
       "ESNext"
     ]

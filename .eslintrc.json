@@ -2,7 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": [
@@ -15,7 +15,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "env": {
-    "es6": true,
+    // "es6": true,
     "node": true
   },
   "rules": {

@@ -4,22 +4,22 @@
 //=============//
 
 export {
-  HttpClient,
-  HttpRequest,
-  HttpResponse,
+  type HttpClient,
+  type HttpRequest,
+  type HttpResponse,
   HttpRequestMethod,
 
 } from './http-client/http-client';
 
 export {
   GotHttpClient,
-  GotHttpClientOptions
+  type GotHttpClientOptions
 
 } from './http-client/got-http-client';
 
 export {
   RequestHttpClient,
-  RequestHttpClientOptions,
+  type RequestHttpClientOptions,
 
 } from './http-client/request-http-client';
 
@@ -35,15 +35,15 @@ export { PayType } from './api-client/requests/common/pay-type';
 export { DataTypeQr } from './api-client/requests/common/data-type-qr';
 
 export {
-  AgentData,
+  type AgentData,
   AgentDataAgentSign,
-  Receipt,
-  ReceiptItem,
+  type Receipt,
+  type ReceiptItem,
   ReceiptPaymentMethod,
   ReceiptPaymentObject,
   ReceiptTax,
   ReceiptTaxation,
-  SupplierInfo,
+  type SupplierInfo,
 
 } from './api-client/requests/common/receipt';
 
@@ -65,8 +65,8 @@ export { ApiManager, ApiManagerMerchant, ApiManagerSafeDeal } from './api-client
 // WEBHOOK HANDLER //
 //=================//
 
-export { WebhookHandler, WebhookHandlerOptions } from './webhook-handler/webhook-handler';
-export { WebhookPayload } from './webhook-handler/webhook-payload';
+export { WebhookHandler, type WebhookHandlerOptions } from './webhook-handler/webhook-handler';
+export { type WebhookPayload } from './webhook-handler/webhook-payload';
 
 
 //==============//
@@ -74,7 +74,7 @@ export { WebhookPayload } from './webhook-handler/webhook-payload';
 //==============//
 
 export { PaymentStatus } from './common/payment-status';
-export { SdkError, PayloadWithMessage } from './common/sdk-error';
+export { SdkError, type PayloadWithMessage } from './common/sdk-error';
 
 
 //=======================//
@@ -82,14 +82,14 @@ export { SdkError, PayloadWithMessage } from './common/sdk-error';
 //=======================//
 
 export {
-  ResponsePayload as BaseResponsePayload,
+  type ResponsePayload as BaseResponsePayload,
 } from './api-client/response-payload';
 
 export {
   initPayment,
-  InitPaymentRequestPayload,
-  InitPaymentResponsePayload,
-  ITinkoffInitRequestData,
+  type InitPaymentRequestPayload,
+  type InitPaymentResponsePayload,
+  type ITinkoffInitRequestData,
 } from './api-client/requests/init-payment';
 
 //=========================//
@@ -98,8 +98,8 @@ export {
 
 export {
   getQr,
-  GetQrRequestPayload,
-  GetQrResponsePayload,
+  type GetQrRequestPayload,
+  type GetQrResponsePayload,
 
 } from './api-client/requests/get-qr';
 
@@ -109,8 +109,8 @@ export {
 
 export {
   checkOrder,
-  CheckOrderRequestPayload,
-  CheckOrderResponsePayload,
+  type CheckOrderRequestPayload,
+  type CheckOrderResponsePayload,
 
 } from './api-client/requests/check-order';
 
@@ -120,8 +120,8 @@ export {
 
 export {
   sendClosingReceipt,
-  SendClosingReceiptRequestPayload,
-  SendClosingReceiptResponsePayload
+  type SendClosingReceiptRequestPayload,
+  type SendClosingReceiptResponsePayload
 } from './api-client/requests/send-closing-receipt';
 
 //=========================//
@@ -130,8 +130,8 @@ export {
 
 export {
   cancelPayment,
-  CancelPaymentRequestPayload,
-  CancelPaymentResponsePayload,
+  type CancelPaymentRequestPayload,
+  type CancelPaymentResponsePayload,
 
 } from './api-client/requests/cancel-payment';
 
@@ -141,8 +141,8 @@ export {
 
 export {
   confirmPayment,
-  ConfirmPaymentRequestPayload,
-  ConfirmPaymentResponsePayload,
+  type ConfirmPaymentRequestPayload,
+  type ConfirmPaymentResponsePayload,
 
 } from './api-client/requests/confirm-payment';
 
@@ -152,8 +152,8 @@ export {
 
 export {
   chargePayment,
-  ChargePaymentRequestPayload,
-  ChargePaymentResponsePayload,
+  type ChargePaymentRequestPayload,
+  type ChargePaymentResponsePayload,
 
 } from './api-client/requests/charge-payment';
 
@@ -163,8 +163,8 @@ export {
 
 export {
   finishAuthorize,
-  FinishAuthorizeRequestPayload,
-  FinishAuthorizeResponsePayload,
+  type FinishAuthorizeRequestPayload,
+  type FinishAuthorizeResponsePayload,
 
 } from './api-client/requests/finish-authorize';
 
