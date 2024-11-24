@@ -1,6 +1,6 @@
 {
   "name": "@cycling-market/tinkoff-payment-sdk",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Tinkoff Payment SDK for Node.js fork",
   "scripts": {
     "build": "run-s build:clean build:compile",

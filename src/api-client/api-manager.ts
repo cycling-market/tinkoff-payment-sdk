@@ -1,4 +1,3 @@
-import { SignProvider } from '../sign-providers/sign-provider';
 import { ApiClient } from './clients/api-client';
 import { ApiClientOptions, BaseClient } from './clients/base-client';
 import { MerchantClient } from './clients/merchant-client';
@@ -30,7 +29,9 @@ import { payment, PaymentRequestPayload, PaymentResponsePayload } from './reques
 import { removeCard, RemoveCardRequestPayload, RemoveCardResponsePayload } from './requests/remove-card';
 import { removeCustomer, RemoveCustomerRequestPayload, RemoveCustomerResponsePayload } from './requests/remove-customer';
 import { resend, ResendResponsePayload, ResendRequestPayload } from './requests/resend';
+import { SbpPayTestRequestPayload, SbpPayTestResponsePayload, sbpPayTest } from './requests/sbp-pay-test';
 import { sendClosingReceipt, SendClosingReceiptRequestPayload, SendClosingReceiptResponsePayload } from './requests/send-closing-receipt';
+import { SignProvider } from '../sign-providers/sign-provider';
 
 
 abstract class BaseApiManager {
@@ -117,6 +118,18 @@ export class ApiManager extends BaseApiManager {
   ): Promise<GetQrResponsePayload> {
 
     return getQr({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public sbpPayTest(
+    payload: SbpPayTestRequestPayload,
+
+  ): Promise<SbpPayTestResponsePayload> {
+
+    return sbpPayTest({
       apiClient: this.apiClient,
       payload,
     });

@@ -103,6 +103,18 @@ export {
 
 } from './api-client/requests/get-qr';
 
+
+//=========================//
+// REQUEST: SBP PAY TEST //
+//=========================//
+
+export {
+  sbpPayTest,
+  type SbpPayTestRequestPayload,
+  type SbpPayTestResponsePayload
+} from './api-client/requests/sbp-pay-test';
+
+
 //=========================//
 // REQUEST: CHECK ORDER //
 //=========================//
