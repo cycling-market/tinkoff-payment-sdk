@@ -19,6 +19,7 @@ import { confirmPayment, ConfirmPaymentRequestPayload, ConfirmPaymentResponsePay
 import { getCardList, GetCardListRequestPayload, GetCardListResponsePayload } from './requests/get-card-list';
 import { getCustomer, GetCustomerRequestPayload, GetCustomerResponsePayload } from './requests/get-customer';
 import { getQr, GetQrRequestPayload, GetQrResponsePayload } from './requests/get-qr';
+import { GetQrStateRequestPayload, GetQrStateResponsePayload } from './requests/get-qr-state';
 import { getState, GetStateRequestPayload, GetStateResponsePayload } from './requests/get-state';
 import {
   initPayment,
@@ -106,6 +107,18 @@ export class ApiManager extends BaseApiManager {
   ): Promise<GetStateResponsePayload> {
 
     return getState({
+      apiClient: this.apiClient,
+      payload,
+    });
+
+  }
+
+  public getQrState(
+    payload: GetQrStateRequestPayload,
+
+  ): Promise<GetQrStateResponsePayload> {
+
+    return getQr({
       apiClient: this.apiClient,
       payload,
     });

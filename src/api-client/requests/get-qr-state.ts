@@ -9,8 +9,8 @@ import { ResponsePayload as BaseResponsePayload } from '../response-payload';
 // REQUEST //
 //=========//
 
-export interface GetStateRequestPayload {
-  /** PaymentId покупателя в системе Продавца	*/
+export interface GetQrStateRequestPayload {
+  /** PaymentId покупателя в системе Продавца   */
   PaymentId: number;
   /** IP-адрес запроса */
   IP?: string;
@@ -24,9 +24,13 @@ const getStateRequestSchema: Schema = [];
 // RESPONSE //
 //==========//
 
-export interface GetStateResponsePayload extends BaseResponsePayload {
-  /** Уникальный номер заказа в системе Продавца	*/
+export interface GetQrStateResponsePayload extends BaseResponsePayload {
+  /** Уникальный номер заказа в системе Продавца    */
   OrderId: string;
+
+  QrCancelCode?: string,
+  QrCancelMessage?: string,
+
   /** Сумма отмены в копейках. */
   Amount?: number;
 }
@@ -39,11 +43,11 @@ const getStateResponseSchema: Schema = [];
 // FUNCTION //
 //==========//
 
-export async function getState(options: {
+export async function getQrState(options: {
   apiClient: BaseClient;
-  payload: GetStateRequestPayload;
+  payload: GetQrStateRequestPayload;
 
-}): Promise<GetStateResponsePayload> {
+}): Promise<GetQrStateResponsePayload> {
 
   const { apiClient } = options;
 
@@ -53,9 +57,9 @@ export async function getState(options: {
     ...restPayload,
   };
 
-  const response = await apiClient.sendRequest<GetStateResponsePayload>({
+  const response = await apiClient.sendRequest<GetQrStateResponsePayload>({
     request: {
-      url: 'GetState',
+      url: 'GetQrState',
       method: HttpRequestMethod.POST,
       payload: $payload,
     },

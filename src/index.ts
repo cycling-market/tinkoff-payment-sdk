@@ -104,6 +104,19 @@ export {
 } from './api-client/requests/get-qr';
 
 
+
+//=========================//
+// REQUEST: GET QR STATE //
+//=========================//
+
+export {
+  getQrState,
+  type GetQrStateRequestPayload,
+  type GetQrStateResponsePayload
+
+} from './api-client/requests/get-qr-state';
+
+
 //=========================//
 // REQUEST: SBP PAY TEST //
 //=========================//
